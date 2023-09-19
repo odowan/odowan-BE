@@ -1,6 +1,6 @@
 package com.smu.odowan.config.security;
 
-import com.smu.odowan.config.dto.TokenDTO;
+import com.smu.odowan.dto.TokenDTO;
 import com.smu.odowan.entities.User;
 import com.smu.odowan.global.BaseException;
 import com.smu.odowan.repository.UserRepository;

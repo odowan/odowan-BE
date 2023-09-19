@@ -1,4 +1,4 @@
-package com.smu.odowan.config.dto;
+package com.smu.odowan.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
