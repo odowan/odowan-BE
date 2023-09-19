@@ -1,6 +1,9 @@
 package com.smu.odowan.config.security;
 
+import com.smu.odowan.config.dto.TokenDTO;
+import com.smu.odowan.entities.User;
 import com.smu.odowan.global.BaseException;
+import com.smu.odowan.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -20,6 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Base64;
 import java.util.Date;
 import java.util.Optional;
+
+import static com.smu.odowan.global.BaseResponseStatus.INVALID_JWT;
 
 
 @Slf4j
