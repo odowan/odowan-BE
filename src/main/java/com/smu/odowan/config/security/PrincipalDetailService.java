@@ -1,5 +1,6 @@
 package com.smu.odowan.config.security;
 
+import com.smu.odowan.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
