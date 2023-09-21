@@ -76,23 +76,6 @@ public class User implements UserDetails {
     }
 
 
-//    public UserDTO toDTO() {
-//        return UserDTO.builder()
-//                .email(email)
-//                .password(password)
-//                .name(name)
-//                .phone(phone)
-//                .local(local)
-//                .profileImage(profileImage)
-//                .status(status)
-//                .role(role)
-//                .created_at(created_at)
-//                .updated_at(updated_at)
-//                .login_at(login_at)
-//                .login_cnt(login_cnt)
-//                .build();
-//    }
-
     // UserDetails 상속
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
