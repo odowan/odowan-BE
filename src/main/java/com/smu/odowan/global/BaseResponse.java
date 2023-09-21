@@ -6,7 +6,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import static com.umc.BareuniBE.global.BaseResponseStatus.SUCCESS;
+
+import static com.smu.odowan.global.BaseResponseStatus.SUCCESS;
 
 @Getter
 @AllArgsConstructor
