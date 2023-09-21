@@ -37,10 +37,6 @@ public class User extends BaseEntity {
     @Pattern(regexp = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$", message = "전화번호 형식이 맞지 않습니다.")
     private String phone;
 
-    @Column(name = "nickname", nullable = false)
-    @Size(max = 9)
-    private String nickname;
-
     @Column(name = "address")
     private String address;
 
