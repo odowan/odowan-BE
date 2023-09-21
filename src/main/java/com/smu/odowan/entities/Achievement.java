@@ -24,11 +24,7 @@ public class Achievement extends BaseEntity {
     @Column(name = "achievementName", nullable = false)
     private String achievementName;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user")
-    private User user;
-
     @OneToMany(mappedBy = "achievement", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Challenge> challenges = new ArrayList<Challenge>();
+    private List<AchievementDone> achievementDones = new ArrayList<>();
 }

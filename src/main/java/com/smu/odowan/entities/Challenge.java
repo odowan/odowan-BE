@@ -1,9 +1,12 @@
 package com.smu.odowan.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.smu.odowan.global.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -35,12 +38,8 @@ public class Challenge extends BaseEntity {
     @Column(name = "answer", nullable = false)
     private Integer answer;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user")
-    private User user;
-
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "achievement")
-    private Achievement achievement;
+    @OneToMany(mappedBy = "challenge", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<ChallengeDone> challengeDones = new ArrayList<>();
 
 }
