@@ -3,11 +3,13 @@ package com.smu.odowan.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.smu.odowan.global.BaseEntity;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -16,7 +18,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class User extends BaseEntity {
+public class User extends BaseEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="userIdx")
@@ -26,6 +28,7 @@ public class User extends BaseEntity {
     @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$", message = "이메일 형식에 맞지 않습니다.")
     private String email;
 
+    // 8-20 영어
     @Column(name = "password")
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d|[^A-Za-z\\d]).{8,20}$", message = "비밀번호가 형식에 맞지 않습니다.")
     private String password;
@@ -40,6 +43,16 @@ public class User extends BaseEntity {
     @Column(name = "address")
     private String address;
 
+//    public UserDTO toDTO() {
+//        return UserDTO.builder()
+//                .email(email)
+//                .password(password)
+//                .name(name)
+//                .phone(phone)
+//                .address(address)
+//                .build();
+//    }
+
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "rankingIdx")
     private Ranking ranking;
@@ -51,5 +64,37 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<AchievementDone> achievementDones = new ArrayList<>();
+
+
+    // UserDetails 상속
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
 }

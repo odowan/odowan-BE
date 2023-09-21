@@ -1,7 +1,11 @@
 package com.smu.odowan.repository;
+import com.smu.odowan.entities.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface UserRepository {
-    Optional<Object> findByEmail(String email);
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    Optional<User> findByEmail(String email);
+
 }
