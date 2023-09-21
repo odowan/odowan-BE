@@ -44,24 +44,16 @@ public class User extends BaseEntity {
     @Column(name = "address")
     private String address;
 
-//        @ElementCollection
-//        @Column(name = "challengeDone")
-//        private List<Integer> challengeDone = new ArrayList<>();
-//
-//        @ElementCollection
-//        @Column(name = "achievementDone")
-//        private List<Integer> achievementDone = new ArrayList<>();
-
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "rank")
-    private Rank rank;
+    @JoinColumn(name = "rankingIdx")
+    private Ranking ranking;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Challenge> challenges = new ArrayList<Challenge>();
+    private List<ChallengeDone> challengeDones = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Achievement> achievements = new ArrayList<Achievement>();
+    private List<AchievementDone> achievementDones = new ArrayList<>();
 
 }

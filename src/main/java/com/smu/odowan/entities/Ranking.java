@@ -14,17 +14,17 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Rank extends BaseEntity {
+public class Ranking extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="rankIdx")
-    private Long rankIdx;
+    @Column(name="rankingIdx")
+    private Long rankingIdx;
 
-    @Column(name = "ranking", nullable = false)
-    private Integer ranking;
+    @Column(name = "rankingNum", nullable = false)
+    private Integer rankingNum;
 
-    @OneToMany(mappedBy = "rank", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "ranking", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<User> bookings = new ArrayList<User>();
+    private List<User> users = new ArrayList<User>();
 }
 
