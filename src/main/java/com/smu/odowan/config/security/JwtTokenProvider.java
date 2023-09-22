@@ -26,7 +26,6 @@ import java.util.Optional;
 
 import static com.smu.odowan.global.BaseResponseStatus.INVALID_JWT;
 
-
 @Slf4j
 @RequiredArgsConstructor
 @Component

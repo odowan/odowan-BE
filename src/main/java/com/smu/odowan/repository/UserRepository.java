@@ -1,5 +1,4 @@
 package com.smu.odowan.repository;
-
 import com.smu.odowan.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
