@@ -1,7 +1,9 @@
 package com.smu.odowan.controller;
 
 import com.smu.odowan.dto.AchievementRes;
+import com.smu.odowan.entities.AchievementDone;
 import com.smu.odowan.global.BaseResponse;
+import com.smu.odowan.service.AchievementDoneService;
 import com.smu.odowan.service.AchievementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -20,10 +22,7 @@ public class AchievementController {
 
     private final AchievementService achievementService;
 
-//    public BaseResponse<List<ReviewRes.ReviewListRes>> getReviewList(@PathVariable Long hospitalIdx, @PageableDefault(page = 0, size = 2) Pageable page) {
-//        List<ReviewRes.ReviewListRes> reviewListRes = reviewService.getReviewList(hospitalIdx, page);
-//        return new BaseResponse<>(reviewListRes);
-//    }
+    private final AchievementDoneService achievementDoneService;
 
     @GetMapping("")
     public BaseResponse<List<AchievementRes.AllAchievementRes>> AllAchievementList() {
@@ -31,4 +30,9 @@ public class AchievementController {
         return new BaseResponse<>(allAchievementRes);
     }
 
+    @GetMapping("{userIdx}")
+    public BaseResponse<List<AchievementDone>> AchievementDoneList(@PathVariable Long userIdx) {
+        List<AchievementDone> achievementDones = achievementDoneService.getAchievementDoneList(userIdx);
+        return new BaseResponse<>(achievementDones);
+    }
 }
