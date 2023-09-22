@@ -8,7 +8,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/odowan
     username: root
-    password: qwer1234
+    password: 5460315a
 
   jpa:
     show-sql: true
