@@ -34,4 +34,8 @@ public class Quiz extends BaseEntity {
 
     @Column(name = "answer", nullable = false)
     private Integer answer;
+
+    @OneToOne
+    @JoinColumn(name = "challengeIdx")
+    private Challenge challenge;
 }
