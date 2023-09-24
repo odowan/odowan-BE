@@ -37,6 +37,9 @@ public enum BaseResponseStatus {
     POST_USERS_NOT_FOUND_EMAIL(false,2018,"존재하지 않는 이메일입니다."),
 
     POST_USERS_NOT_FOUND_NICKNAME(false,2019,"존재하지 않는 닉네임입니다."),
+    POST_USERS_FOUND_EMAIL(false,2020,"존재하는 이메일입니다."),
+
+    POST_USERS_FOUND_NICKNAME(false,2021,"존재하는 닉네임입니다."),
 
 
 
