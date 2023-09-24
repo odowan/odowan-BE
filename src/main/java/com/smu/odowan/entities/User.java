@@ -53,7 +53,7 @@ public class User extends BaseEntity implements UserDetails {
 //                .build();
 //    }
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "rankingIdx")
     private Ranking ranking;
 
