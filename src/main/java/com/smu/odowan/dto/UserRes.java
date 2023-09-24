@@ -15,4 +15,15 @@ public class UserRes {
     public static class UserJoinRes{
         private User user;
     }
+
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Getter
+    @Setter
+    public static class UserInfo {
+        private String email;
+        private String name;
+        private String phone;
+        private String address;
+    }
 }
