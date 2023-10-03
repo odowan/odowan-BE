@@ -32,6 +32,9 @@ public class Challenge extends BaseEntity {
     @Column(name = "localName", nullable = false)
     private String localName;
 
+//    @Column(name = "localDetail", nullable = false)
+//    private String localDetail;
+
     @OneToOne(mappedBy = "challenge", cascade = CascadeType.ALL)
     @JsonIgnore
     private Quiz quiz;
