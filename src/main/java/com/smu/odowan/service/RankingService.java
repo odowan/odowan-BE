@@ -25,7 +25,7 @@ public class RankingService {
 //        return userRepository.findByOrderByAchievementCountDesc();
 //    }
 
-    public List<RankingRes.AllRankingRes>   getRankingByAchievementCount() {
+    public List<RankingRes.AllRankingRes> getRankingByAchievementCount() {
         List<User> rankedUsers = userRepository.findByOrderByChallengeDoneCountDesc();
 
         AtomicReference<Long> rankingNum = new AtomicReference<>(1L);
