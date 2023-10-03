@@ -21,10 +21,10 @@ public class Challenge extends BaseEntity {
     private Long challengeIdx;
 
     @Column(name = "challangeName", nullable = false)
-    private String challangeName;
+    private String challengeName;
 
     @Column(name = "challangeDesc", nullable = false)
-    private String challangeDesc;
+    private String challengeDesc;
 
     @Column(name = "trending", nullable = false)
     private Integer trending;
