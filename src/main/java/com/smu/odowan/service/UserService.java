@@ -215,11 +215,11 @@ public class UserService {
     public Boolean checkName(UserReq.NameCheckReq request) throws BaseException {
         Optional<User> optionalUser = userRepository.findByName(request.getName());
 
-        if(optionalUser.isPresent()) {
+        if (optionalUser.isEmpty()) {
+            throw new BaseException(POST_USERS_NOT_FOUND_NICKNAME); // 닉네임 사용가능
+        } else {
             User user = optionalUser.get();
             return true; // 닉네임 중복됨
-        } else {
-            throw new BaseException(POST_USERS_NOT_FOUND_NICKNAME); // 닉네임 사용가능
         }
     }
 

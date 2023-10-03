@@ -3,6 +3,7 @@ package com.smu.odowan.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.smu.odowan.global.BaseEntity;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -43,15 +44,8 @@ public class User extends BaseEntity implements UserDetails {
     @Column(name = "address")
     private String address;
 
-//    public UserDTO toDTO() {
-//        return UserDTO.builder()
-//                .email(email)
-//                .password(password)
-//                .name(name)
-//                .phone(phone)
-//                .address(address)
-//                .build();
-//    }
+    @Column(name = "challengeDoneCount")
+    private Long challengeDoneCount;
 
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "rankingIdx")
