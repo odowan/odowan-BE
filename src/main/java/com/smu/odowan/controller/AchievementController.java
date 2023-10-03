@@ -2,6 +2,8 @@ package com.smu.odowan.controller;
 
 import com.smu.odowan.dto.AchievementRes;
 import com.smu.odowan.entities.AchievementDone;
+import com.smu.odowan.entities.User;
+import com.smu.odowan.global.BaseException;
 import com.smu.odowan.global.BaseResponse;
 import com.smu.odowan.service.AchievementDoneService;
 import com.smu.odowan.service.AchievementService;
@@ -35,4 +37,10 @@ public class AchievementController {
         List<AchievementDone> achievementDones = achievementDoneService.getAchievementDoneList(userIdx);
         return new BaseResponse<>(achievementDones);
     }
+
+    @GetMapping("/set/{userIdx}")
+    public BaseResponse<User> setAchievement(@PathVariable Long userIdx) throws BaseException {
+        return new BaseResponse<>(achievementService.achieveAchievement(userIdx));
+    }
+
 }
