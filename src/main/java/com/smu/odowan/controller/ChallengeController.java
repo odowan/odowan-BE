@@ -1,24 +1,26 @@
 package com.smu.odowan.controller;
 
+import com.smu.odowan.dto.ChallengeRes;
+import com.smu.odowan.global.BaseResponse;
+import com.smu.odowan.service.ChallengeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@Log4j2
-@RestController
+import java.util.List;
+
 @RequiredArgsConstructor
-@RequestMapping(value = "/local")
+@RestController
+@RequestMapping("/challenges")
 public class ChallengeController {
 
-//    @Autowired
-//    private ChanllengeService chanllengeService;
+    private final ChallengeService challengeService;
 
-//    @GetMapping("{addressCode}")
-//    public BaseResponse<List<Challenge>> AchievementDoneList(@PathVariable Long addressCode) {
-//        List<Challenge> challenges = chanllengeService.getAddressDetailList(addressCode);
-//        return new BaseResponse<>(challenges);
-//    }
+    @GetMapping("/location")
+    public BaseResponse<List<ChallengeRes.LocationChallengeRes>> locationChallengeList(@RequestParam String localName) {
+        List<ChallengeRes.LocationChallengeRes> locationChallengeList = challengeService.locationChallengeList(localName);
+        return new BaseResponse<>(locationChallengeList);
+    }
 
 }
