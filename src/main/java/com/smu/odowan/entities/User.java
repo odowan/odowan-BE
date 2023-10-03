@@ -1,6 +1,7 @@
 package com.smu.odowan.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.smu.odowan.global.BaseEntity;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -46,7 +47,7 @@ public class User extends BaseEntity implements UserDetails {
 
     @Column(name = "challengeDoneCount")
     private Long challengeDoneCount;
-
+    
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "rankingIdx")
     private Ranking ranking;

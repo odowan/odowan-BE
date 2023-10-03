@@ -1,6 +1,5 @@
 package com.smu.odowan.controller;
 
-import com.smu.odowan.entities.AchievementDone;
 import com.smu.odowan.global.BaseResponse;
 import com.smu.odowan.service.ChallengeDoneService;
 import lombok.RequiredArgsConstructor;

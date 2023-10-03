@@ -60,6 +60,7 @@ public class UserService {
                 .name(user.getName())
                 .phone(user.getPhone())
                 .address(user.getAddress())
+                .challengeDoneCount(0L)
                 .build();
         return new UserRes.UserJoinRes(userRepository.saveAndFlush(newUser));
         }else {
